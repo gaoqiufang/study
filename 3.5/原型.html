@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Parent (){
+            this.name = "gaoqiufang"
+        }
+
+        var home = Parent.prototype;
+
+        Parent.prototype.bed = function (){
+            console.log('sleep!');
+        }
+        console.log(Parent);//
+        console.log(home);
+        // {
+        //     bed:f,
+        //     constructor:f Parent(),
+        //     __proto__:Object
+        // }
+
+        var you = new Parent();//实例化之后，继承构造器的方法属性，以及构造器原型上的方法属性。
+        you.bed();
+        console.log(you);
+        console.log(you.name);
+
+        var brother = new Parent();
+        console.log(brother.name);
+    </script>
+</body>
+</html>
