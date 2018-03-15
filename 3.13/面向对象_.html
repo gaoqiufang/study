@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字面量
+        var obj = {
+            name: "gaoqiufang",
+            age: 16,
+            showName: function() {
+                console.log(this.name);
+            },
+            showAge: function() {
+                console.log(this.age);
+            }
+        }
+        obj.height = "180cm";//小点后面直接加属性
+        var size = "size";
+        obj[size] = "70D";//[]里面必须是变量  延伸：ES6写法·${weight}·
+        var weight = "weight"
+        obj[`${weight}`] = "55kg";
+        console.log(obj);
+        //工厂模式
+        var person = function(name,age) {
+            var per = new Object();
+            per.name = name;
+            per.age = age;
+            per.showName = function() {
+                console.log(this);
+                console.log(this.name);
+            };
+            return per;
+        }
+        var p1 = person("gaoqiufang",18);
+        console.log(p1);
+        p1.showName();
+
+        //构造函数模式
+        var personA = function(name,age,size){
+            this.name = name;
+            this.age = age;
+            this.size = size;
+            this.showAge = function() {
+                console.log(this);
+                console.log(this.age);
+            }
+        }
+        var per1 = new personA("gaoqiufang",16,"70E");
+        console.log(per1);
+        per1.showAge();
+
+
+
+        //原型模式
+        function Person(){
+            console.log(111);
+        };
+        Person.prototype.name = "gaoqiufang";
+        Person.prototype.age = 18;
+        Person.prototype.size = "70A";
+        Person.prototype.showSize = function() {
+            console.log(this.size);
+        }
+        var personA = new Person();
+        console.log(personA);//本身没有，找构造器原型上的方法属性
+        console.log(personA.name);//通过__proto__找原型上的方法属性。
+
+        //构造器原型模式
+        function P(name,age,size,height) {
+            this.name = name;
+            this.age = age;
+            this.size = size; 
+            this.height = height;
+        }
+        P.prototype = {
+            constructor:P,
+            showHeight : function() {
+                console.log(this.height);
+            }
+        }
+        var P1 = new P("gaoqiufang",18,"70F","168cm");//new之后执行构造器P的原型方法属性
+        console.log(P1);
+        P1.showHeight();
+    </script>
+</body>
+</html>
