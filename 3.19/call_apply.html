@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+       一、 判断基本数据类型
+        最基本的的typeof 但是此方法不能判断出数组和对象
+        所以可以用 Object.prototype.toString.call([]),
+        显示的结果为 [object Array] 
+
+        Object.prototype.toString.call({})
+        显示结果为 [object Object]
+        所以可以看出万事万物皆为object
+
+        二、由此联想到把为数组转化为真实的数组 Array.prototype.slice.call({0:"nihao",2:"hello",length:2})
+        结果为 ["nihao","hello"]
+        注意：后面的length长度必写，伪数组中的key值必须为数字
+    </div>
+    <script>
+        // 三、
+        var arr = [1,3,4,5,6,7,2,67,334];
+        arr.push(223);
+        
+        var push_ = Array.prototype.push;
+        push_.call(arr,578);
+        console.log(arr);
+
+        //call apply  call(第一个参数：obj，可以为null,后面可以接很多个参数，并且用逗号隔开)，apply(obj,[]只有两个参数)
+        //四、apply的用法
+        function person(name,age) {
+            this.name = name;
+            this.age = age;
+            this.alertName = function() {
+                alert(this.name);
+            }
+            this.alertAge = function() {
+                alert(this.age);
+            }
+        }
+        function Dadiv(name,age,sex) {
+            person.call(this,name,age);
+            this.sex = sex;
+            this.alertSex = function() {
+                alert(this.sex);
+            }
+        }
+
+        var test = new Dadiv("gaoqiufang",18,"女");
+        test.alertName();
+        test.alertAge();
+        test.alertSex();
+
+        //person.call(this,name,age);这句话的意思是person构造函数在this对象下执行，那么Dadiv就有了person对象所有的方法属性，
+        //所以test就能够直接调用person的方法属性了，相当于以下代码：
+        //function Dadiv(name,age,sex) {
+            // this.name = name;
+            // this.age = age;
+            // this.alertName = function() {
+            //     alert(this.name);
+            // }
+            // this.alertAge = function() {
+            //     alert(this.age);
+            // }
+            //中间注释的代码相当于person.call(this,name,age);这行代码。
+        //}
+
+        //五、apply的用法
+        //apply可以将一个数组默认转化为一个参数列表即[param1,param2,param3]转化为param1,param2,param3
+
+        //第一个用法：
+        //eg:Math.max()参数里面不支持Math.max([param1,param2])也就是数组，但是它支持Math.max(param1,param2,param3...)所以可以根据这个特点来找出一个数组中
+        //最大的数 即 
+        var array = [1,5,6] ; console.log(Math.max.apply(null,array) );//没有对象调用这个方法，只是运用这个方法计算结果，得到返回的结果就行，所以传null
+
+        //第二个用法：
+        var arr1 = [1,2,3,4];
+        var arr2 = [5,6,7,8];
+        Array.prototype.push.apply(arr1,arr2);//apply会将arr2转换为一个一个的值进行传递
+        Array.prototype.push.call(arr1,5,6,7,8);//call也可以这样用
+        console.log(arr1);
+
+        //六、给Array添加方法就是在Array.prototype上添加方法eg:Array.prototype.showLength();
+        
+    </script>
+</body>
+</html>
