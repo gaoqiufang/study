@@ -36,6 +36,17 @@
         $("input").each(function(i){
             this.type = "button";//this指每一个DOM元素，而不是Jquery对象
         })
+        var arr = [1,4,5,3,2,4]
+        $.each(arr, function() {
+            console.log(this)
+        })
+
+
+        $.fn.showName = function() {
+            //this 指 jQuery 对象（eg: $("div")）
+        }//$.fn = jQuery.prototype   
+
+        $('input').showName()
     </script>
 </body>
 </html>

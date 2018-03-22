@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一、函数内部声明变量必须用var，如果不用则是声明了全局变量。下面了解一下全局变量和局部变量
+        var i= 0;//全局变量
+        function showI() {
+            console.log(i);
+            var i = 1;//相当于var i;把var i;首先提到函数内部的最前面。
+        }
+        showI();//结果是 undefined,只声明变量了，没有赋值。
+        //函数function内加上var就是局部变量，声明的局部变量名称和外部的全局变量名称相同，但是与外部的i是没有关系的，只是名字相同而已，
+        //所以conosle之前，局部变量定义之前会输出undefined
+
+
+        var j = 1;
+        function showJ() {
+            console.log(j);
+            j=2;//相当于全局变量
+        }
+        showJ();//function内没有加var相当于全局变量，所以console.log在变量赋值之前，输出1
+
+        var a = 1;
+        function showA() {
+            a = 2;//全局变量重新被赋值
+            console.log(a);
+        }
+        showA();//输出2
+
+        var b = 1;
+        function showB() {
+            c = 2;
+        }
+        showB();
+        console.log(c);
+        //全局变量可以不用var声明，但是函数内部变量必须用var声明，在定义全局变量时加不加var都没关系，但是定义局部变量时不加var ,js会将其解释为全局变量
+
+        (function() {
+            var t = y = w = 10;
+            //相当于  w = 10; y = w; var t = y;
+        })()
+        console.log(y); //10
+        console.log(w); //10
+        //console.log(t);//报错，因为t是局部变量
+
+
+        var d = 1;
+        function d() {
+            console.log(2);
+        }
+        //d();//结果报错 因为函数存在优先级。直接声明的函数 function a() {};优先级最高，会提到最前面， var a = function() {};的优先级跟var a;优先级一样
+        //所以上面的代码相当于
+        //function d(){};
+        //var d = 1;//此时d已经是一个常量了，所以下面再调用d的话，就会报错。
+        //d();
+    </script>
+</body>
+</html>

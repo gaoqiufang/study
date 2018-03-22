@@ -8,68 +8,82 @@
 </head>
 <body>
     <script>
-        // 一、函数内部声明变量必须用var，如果不用则是声明了全局变量。下面了解一下全局变量和局部变量
-        var i= 0;//全局变量
-        function showI() {
-            console.log(i);
-            var i = 1;//相当于var i;把var i;首先提到函数内部的最前面。
-        }
-        showI();//结果是 undefined,只声明变量了，没有赋值。
-        //函数function内加上var就是局部变量，声明的局部变量名称和外部的全局变量名称相同，但是与外部的i是没有关系的，只是名字相同而已，
-        //所以conosle之前，局部变量定义之前会输出undefined
-
-
-        var j = 1;
-        function showJ() {
-            console.log(j);
-            j=2;//相当于全局变量
-        }
-        showJ();//function内没有加var相当于全局变量，所以console.log在变量赋值之前，输出1
-
-        var a = 1;
-        function showA() {
-            a = 2;//全局变量重新被赋值
-            console.log(a);
-        }
-        showA();//输出2
-
-        var b = 1;
-        function showB() {
-            c = 2;
-        }
-        showB();
-        console.log(c);
-        //全局变量可以不用var声明，但是函数内部变量必须用var声明，在定义全局变量时加不加var都没关系，但是定义局部变量时不加var ,js会将其解释为全局变量
-
-        (function() {
-            var t = y = w = 10;
-            //相当于  w = 10; y = w; var t = y;
-        })()
-        console.log(y); //10
-        console.log(w); //10
-        //console.log(t);//报错，因为t是局部变量
-
-
-        var d = 1;
-        function d() {
-            console.log(2);
-        }
-        //d();//结果报错 因为函数存在优先级。直接声明的函数 function a() {};优先级最高，会提到最前面， var a = function() {};的优先级跟var a;优先级一样
-        //所以上面的代码相当于
-        //function d(){};
-        //var d = 1;//此时d已经是一个常量了，所以下面再调用d的话，就会报错。
-        //d();
-        
         // 二、闭包
         function test() {
             var n = 100;
             function test1() {
-                console.log(n);
+                console.log(n++);
             }
-            return test1;
+            return test1;//return出函数引用，此时闭包中用到了父作用域中的私有变量，所以导致这个变量不能被垃圾回收机制回收，所以也就延长了这个变量的生命周期
         }
         var result = test();
-        result();
+        // result();
+        // result();
+        // result();
+        // result();
+        // result();
+        // result();
+        // result();
+
+
+        function Person() {
+            var age = 10;
+            this.grow = function() {
+                console.log(age++)
+            }
+        }
+
+        var p1 = new Person();
+
+        // p1.grow()
+        // p1.grow()
+        // p1.grow()
+        // p1.grow()
+        // p1.grow()
+
+
+        // var result = [];
+        // for(var i = 0; i<10; i++) {
+        //     result[i] = (function(i) {
+        //         return function() {
+        //             console.log(i)
+        //         }
+        //     })(i)
+        // }
+
+        // for(var j = 0; j < result.length; j++) {
+        //     // result[j]();
+        // }
+
+
+        // for(var i = 0; i < 10; i++) {
+        //     setTimeout((function(i) {
+        //         return function() {
+        //             console.log(i)
+        //         }
+        //     })(i), 0);
+        // }
+
+        /*
+            😄🙂函数的执行过程：
+            1.函数声明之后，放在堆里，等待被调用
+            2.被调用时，首先做一些准备，首先创建属于函数自己的作用域
+            3.如果有参数，把参数传入到函数作用域中
+            4.开始自上而下执行代码，遇到变量，优先查找函数内部的变量，如果内部不存在，再去父作用域查到，直到找到这个变量。否则报错！！！
+            5.遇到return函数结束执行并返回结果（如果有结果就返回结果，无结果或无return，返回undefined）
+            😱😱😱注意！！ 如果内部逻辑存在ajax等异步操作，且函数返回值依赖ajax结果，这时候return是没有值得，即undefined
+            😊😊😊解决方案！！   ： 1.把依赖返回值的逻辑放在ajax成功之后执行
+                                    2.promise
+        */
+       // (参数优先级大于函数内部的变量)
+       function fn(a) {
+           //参数a = 10
+           //var a
+           console.log(a);
+           var a = 1;
+           console.log(a)
+       }
+       fn(10);
     </script>
 </body>
 </html>
