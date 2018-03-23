@@ -9,6 +9,7 @@
 <body>
     <script>
         // 二、闭包
+        //第一种最常见的用法
         function test() {
             var n = 100;
             function test1() {
@@ -25,7 +26,7 @@
         // result();
         // result();
 
-
+        //第二种 ：构造器创建对象
         function Person() {
             var age = 10;
             this.grow = function() {
@@ -33,27 +34,26 @@
             }
         }
 
-        var p1 = new Person();
-
+        var p1 = new Person();//new一下，相当于return
         // p1.grow()
         // p1.grow()
         // p1.grow()
         // p1.grow()
         // p1.grow()
 
+        // 第三种 外部环境相当于一个复函数，所以for循环里面的变量相当于全局变量
+        var result = [];
+        for(var i = 0; i<10; i++) {
+            result[i] = (function(i) {
+                return function() {
+                    console.log(i)
+                }
+            })(i)
+        }
 
-        // var result = [];
-        // for(var i = 0; i<10; i++) {
-        //     result[i] = (function(i) {
-        //         return function() {
-        //             console.log(i)
-        //         }
-        //     })(i)
-        // }
-
-        // for(var j = 0; j < result.length; j++) {
-        //     // result[j]();
-        // }
+        for(var j = 0; j < result.length; j++) {
+            result[j]();
+        }
 
 
         // for(var i = 0; i < 10; i++) {
