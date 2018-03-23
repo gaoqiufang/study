@@ -57,17 +57,17 @@
 
         //person.call(this,name,age);这句话的意思是person构造函数在this对象下执行，那么Dadiv就有了person对象所有的方法属性，
         //所以test就能够直接调用person的方法属性了，相当于以下代码：
-        //function Dadiv(name,age,sex) {
-            // this.name = name;
-            // this.age = age;
-            // this.alertName = function() {
-            //     alert(this.name);
-            // }
-            // this.alertAge = function() {
-            //     alert(this.age);
-            // }
-            //中间注释的代码相当于person.call(this,name,age);这行代码。
-        //}
+        /* function Dadiv(name,age,sex) {
+            this.name = name;
+            this.age = age;
+            this.alertName = function() {
+                alert(this.name);
+            }
+            this.alertAge = function() {
+                alert(this.age);
+            }
+            中间注释的代码相当于person.call(this,name,age);这行代码。
+        } */
 
         //五、apply的用法
         //apply可以将一个数组默认转化为一个参数列表即[param1,param2,param3]转化为param1,param2,param3

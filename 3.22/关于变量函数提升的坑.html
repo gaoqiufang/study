@@ -15,8 +15,10 @@
             var i = 1;//相当于var i;把var i;首先提到函数内部的最前面。
         }
         showI();//结果是 undefined,只声明变量了，没有赋值。
-        //函数function内加上var就是局部变量，声明的局部变量名称和外部的全局变量名称相同，但是与外部的i是没有关系的，只是名字相同而已，
-        //所以conosle之前，局部变量定义之前会输出undefined
+        /*
+            函数function内加上var就是局部变量，声明的局部变量名称和外部的全局变量名称相同，但是与外部的i是没有关系的，只是名字相同而已，
+            所以conosle之前，局部变量定义之前会输出undefined 
+        */
 
 
         var j = 1;
@@ -49,16 +51,20 @@
         console.log(w); //10
         //console.log(t);//报错，因为t是局部变量
 
-
-        var d = 1;
-        function d() {
-            console.log(2);
-        }
-        //d();//结果报错 因为函数存在优先级。直接声明的函数 function a() {};优先级最高，会提到最前面， var a = function() {};的优先级跟var a;优先级一样
-        //所以上面的代码相当于
-        //function d(){};
-        //var d = 1;//此时d已经是一个常量了，所以下面再调用d的话，就会报错。
-        //d();
+        /*
+            var d = 1;
+            function d() {
+                console.log(2);
+            }
+            d();
+            结果报错 因为函数存在优先级。直接声明的函数 function a() {};优先级最高，会提到最前面， var a = function() {};的优先级跟var a;优先级一样
+        */
+        /*
+            所以上面的代码相当于
+            function d(){};
+            var d = 1;//此时d已经是一个常量了，所以下面再调用d的话，就会报错。
+            d();
+        */
     </script>
 </body>
 </html>
