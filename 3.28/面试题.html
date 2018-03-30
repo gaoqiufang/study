@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <!-- <form>
+        <label>Name:</label>
+        <input name="name" />
+        <input name="sss">
+        <fieldset>
+            <label>Newsletter:</label>
+            <input name="newsletter" />
+            <input name="text" />
+        </fieldset>
+    </form>
+    <input name="none" />
+    <input name="age" /> -->
+    <input name="apple" />
+    <input name="flower" type="radio" checked="checked" />
+    <script>
+        //console.log($("label + input"));
+        //console.log($("form > input"));
+        //console.log($("form ~ input"));
+        //console.log($("input:not(checked)"));
+        console.log($("input:not([checked])"));
+        /*
+            box-sizing 属性主要用来控制元素的盒模型解析模式。默认值：content-box.
+            1,content-box:让元素维持W3C的标准盒模型。元素的宽度/高度由border + padding + content的宽度/高度决定，设置width/height属性指的是content部分的宽/高.
+            2,border-box:让元素维持IE传统盒模型。设置width/height属性指的是border + padding + content.
+
+            css 选择器：
+            1，id   类    标签
+            2，parent > child  parent后面的子元素（可能是多个子元素）,只能是子元素，孙元素不行
+            3，prev + next 匹配所有紧接在prev元素后面的next元素(一定是紧挨着)
+            4，prev ~ siblings 匹配 prev 元素之后的所有同辈 siblings 元素
+        */
+    </script>
+</body>
+</html>
