@@ -1,0 +1,35 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+body, button, input, select, textarea {
+    font: 14px/1.5 'Heiti SC', 'Microsoft Yahei', '宋体', sans-serif;
+}
+
+.topbar {
+    height: 50px;
+    background: #373d41;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+// .container {
+//     margin-top: 50px;
+    .sidebar {
+        width: 50px;
+        background: #333744;
+        position: fixed;//只有fixed才有种用法(bottom:0;根据浏览器边缘固定位置，才能生效)
+        bottom: 0;
+        left: 0;
+        top: 50px;
+    }
+    .content {
+        margin-top: 50px;
+        margin-left: 50px;
+        background: pink;
+        height: 1000px;
+    }
+// } 
+
+
