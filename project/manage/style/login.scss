@@ -1,0 +1,79 @@
+// html,body {
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+// }
+// 头部
+.top {
+    height: 46px;
+    // border: 1px solid pink;
+    padding-top: 14px;
+    box-shadow: 0px 2px 8px #e4e4e4;
+    //(box-shadow: h-shadow v-shadow blur spread color inset;)前两个参数：水平，垂直阴影的位置，blur 可选，模糊距离。spread 可选，阴影尺寸。color 可选，颜色。inset可选，将外部阴影（outset）改为内部阴影。
+    .topLeft {
+        margin-left: 60px;
+    }
+    .topRight {
+        float: right;
+        margin-right: 42px;
+        a {
+            display: inline-block;
+            color: #000;
+        }
+        .warn {
+            margin-right: 20px;
+        }
+        .userPart {
+            margin-left: 58px;
+            vertical-align: middle;
+        }
+    }
+}
+// 内容
+.loginBanner {
+    .banner{
+        display: inline-block;
+        width: 990px;
+    }
+    .loginDetail {
+        float: right;
+        padding: 153px 115px 0px 0px;
+        .userLogin {
+            height: 36px;
+            color: #1f5dea;
+            font-size: 36px;
+            padding:37px 0;
+        }
+        label {
+            display: block;
+            font-size: 12px;
+            color: #aaaebb;
+            margin: 11px 0;
+        }
+        input {
+            display: block;
+            height: 42px;
+            width: 320px;
+            background: #eff0f4;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            padding-left: 15px;
+        }
+        .loginClick {
+            display: block;
+            height: 50px;
+            width: 320px;
+            margin-top: 39px;
+            background: #1f5dea;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}
+
+

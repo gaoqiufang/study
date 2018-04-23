@@ -1,0 +1,151 @@
+.aside {
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #0e1850;
+  font-size: 16px;
+  color: #b6c3de;
+}
+
+.aside.shink {
+  width: 60px;
+}
+
+.aside.shink .shink_aside {
+  display: block;
+}
+
+.aside.shink .normal_aside {
+  display: none;
+}
+
+.aside.shink .aisdeLogo .shink_logo {
+  display: block;
+}
+
+.aside.shink .aisdeLogo .aside_logo {
+  display: none;
+}
+
+.aside .aisdeLogo {
+  height: 120px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.aside .aisdeLogo .shink_logo {
+  display: none;
+}
+
+.aside .normal_aside .item {
+  cursor: pointer;
+}
+
+.aside .normal_aside .item .firstMenu {
+  border: 1px solid #17236a;
+  padding-left: 19px;
+}
+
+.aside .normal_aside .item .firstMenu a {
+  display: inline-block;
+  color: #b6c3de;
+  width: 105px;
+  height: 53px;
+  line-height: 53px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.aside .normal_aside .item .firstMenu .icon-jiantouxia {
+  display: none;
+}
+
+.aside .normal_aside .item .firstMenu .icon-jiantoushang {
+  display: inline-block;
+  transition: all 0.3s;
+  font-size: 12px;
+}
+
+.aside .normal_aside .item .item_bd {
+  display: none;
+}
+
+.aside .normal_aside .item .item_bd li {
+  height: 38px;
+  background: #1c286d;
+  line-height: 38px;
+  text-align: center;
+  border-bottom: 1px solid #0e1850;
+  font-size: 14px;
+}
+
+.aside .normal_aside .item.active .item_bd {
+  display: block;
+}
+
+.aside .normal_aside .item.active .firstMenu .icon-jiantoushang {
+  transform: rotate(180deg);
+}
+
+.aside .shink_aside {
+  display: none;
+}
+
+.topbar {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  background: #fff;
+}
+
+.topbar.shink {
+  left: 60px;
+}
+
+.topbar .closed {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0e1850;
+  margin: 15px 29px 0 29px;
+  cursor: pointer;
+}
+
+.topbar .topRight {
+  float: right;
+  padding-right: 42px;
+  padding-top: 18px;
+  color: #0e1850;
+}
+
+.topbar .topRight a {
+  display: inline-block;
+}
+
+.topbar .topRight .warn {
+  margin-right: 20px;
+}
+
+.topbar .topRight .userPart {
+  margin-left: 58px;
+}
+
+.topbar .topRight .userPart .arrow {
+  display: inline-block;
+  padding-left: 9px;
+}
+
+.content {
+  height: 1000px;
+  background: #f6f6f6;
+  margin-top: 60px;
+  margin-left: 200px;
+}
+
+.content.shink {
+  margin-left: 60px;
+}

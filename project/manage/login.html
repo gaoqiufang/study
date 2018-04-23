@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <script src="js/config.js"></script>
+    <script src="js/lib/require.js"></script>
+    <link rel="stylesheet" href="style/lib/iconfont/iconfont.css">
+    <link rel="stylesheet" href="style/common.css">
+    <link rel="stylesheet" href="style/login.css"> 
+</head>
+<body>
+    <div class="allContent">
+        <!-- 头部 -->
+        <div class="top">
+            <a href="#" class="topLeft"><img src="images/logo.png"></a>
+            <div class="topRight">
+                <a href="#" class="warn"><i class="iconfont icon-ico-tip"></i></a>
+                <a href="#"><i class="iconfont icon-link"></i></a>
+                <a href="#" class="userPart">
+                    <i class="iconfont icon-user"></i>
+                    <span class="user">tianchuang<img src="images/arrow.png"></span>
+                </a>
+            </div>
+        </div>
+        <!-- 内容 -->
+        <div class="loginBanner">
+            <img class="banner" src="images/banner.png" alt="">
+            <div class="loginDetail">
+                <a href="#"><img src="images/login.png" alt=""></a>
+                <div class="userLogin">用户登录</div>
+                <form>
+                    <label for="userName">用户名</label>
+                    <input class="username" type="text"  placeholder="用户名">
+                    <label for="password">用户密码</label>
+                    <input class="password" type="password" placeholder="用户密码">
+                    <button type="button" class="loginClick">登录</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        require(['login'],function(module) {
+            module.start();
+        });
+
+        alert();
+    </script>
+</body>
+</html>

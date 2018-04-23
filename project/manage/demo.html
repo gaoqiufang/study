@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="js/config.js"></script>
+<script src="js/lib/require.js"></script>
+<link rel="stylesheet" href="style/common.css">
+<link rel="stylesheet" href="style/lib/asideIcon/iconfont.css">
+<link rel="stylesheet" href="style/lib/iconfont/iconfont.css">
+<link rel="stylesheet" href="style/demo.css"> 
+<title>Document</title>
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside" id="aside">
+        <div class="aisdeLogo">
+            <img class="aside_logo" src="images/aisdeLogo.png">
+            <img class="shink_logo" src="images/logo_shrink.png">         
+        </div>
+        <ul class="normal_aside">
+            <li class="item">
+                <div class="firstMenu">
+                    <i class="iconfont icon-kehuguanli"></i><a>客户管理</a><i class="iconfont icon-jiantoushang"></i><i class="iconfont icon-jiantouxia"></i>
+                </div>
+                <ul class="item_bd">
+                    <li>客户账户管理</li>
+                    <li>客户产品管理</li>
+                </ul>
+            </li>
+            
+            <li class="item">
+                <div class="firstMenu">
+                    <i class="iconfont icon-chanpinguanli"></i><a>产品管理</a><i class="iconfont icon-jiantoushang"></i><i class="iconfont icon-jiantouxia"></i>
+                </div>
+                <ul class="item_bd">
+                    <li>数据产品价格管理</li>
+                    <li>API普通接口管理</li>
+                </ul>  
+            </li>
+             
+            <li class="item">
+                <div class="firstMenu">
+                    <i class="iconfont icon-canshupeizhi"></i><a>产品参数配置</a><i class="iconfont icon-jiantoushang"></i><i class="iconfont icon-jiantouxia"></i>
+                </div>
+                <ul class="item_bd">
+                    <li>API入参管理</li>
+                    <li>基础变量管理</li>
+                </ul>
+            </li>
+
+            <li class="item">
+                <div class="firstMenu">
+                    <i class="iconfont icon-zhongduanchangshangguanli"></i><a>厂商管理</a><i class="iconfont icon-jiantoushang"></i><i class="iconfont icon-jiantouxia"></i>
+                </div>
+                <ul class="item_bd">
+                    <li>厂商接口管理</li>
+                    <li>厂商接口价格管理</li>
+                </ul>
+            </li>
+        </ul>
+        <!-- 收缩侧边栏 -->
+        <ul class="shink_aside">
+            qwqer
+        </ul>
+    </div>
+    <!-- 头部 -->
+    <div class="topbar" id="header">
+        <a class="closed" id="shink_closed"><i class="iconfont icon-zhenliexianshi"></i></a>
+        <div class="topRight">
+            <a href="#" class="warn"><i class="iconfont icon-ico-tip"></i></a>
+            <a href="#"><i class="iconfont icon-link"></i></a>
+            <a href="#" class="userPart">
+                <i class="iconfont icon-user"></i>
+                <span class="user">tianchuang<img class="arrow" src="images/arrow.png"></span>
+            </a>
+        </div>
+    </div>
+    <div class="content" id="content">
+            <form action="http://www.baidu.com" method="post">
+                <input type="text" name="username">
+                <button type="submit">提交</button>
+            </form>
+    </div>
+<script>
+    require(['demo'],function(module) {
+        module.start();
+    });
+
+    var arr = ['图片1', '图片2', '图片3']
+
+    var count = 0;
+    arr[0]
+    function xiabiao(count) {
+        if(count >= 2) {
+            count = 0;
+        } else {
+            count++;
+        }
+        return count;
+    }
+    
+    arr[xiabiao(count)]
+    
+</script>
+</body>
+</html>

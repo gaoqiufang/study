@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 第一种方法 */
+        /* .box {
+            height:400px;
+            width: 400px;
+            border: 1px solid red;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -200px;
+        }
+        .content {
+            height: 100px;
+            width: 100px;
+            background: pink;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+        } */
+        /* 第二种方法 */
+        /* .content {
+            width: 100px;
+            height: 100px;
+            background:plum;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;   
+        } */
+        /* 第三种方法:使内容垂直居中 */
+        .content {
+            height: 200px;
+            width: 200px;
+            background: pink;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="content">1223455</div>
+    </div>
+</body>
+</html>

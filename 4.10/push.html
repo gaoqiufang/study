@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组中的push方法：向数组的末尾添加一个或多个元素，并返回新数组的长度
+        Array.prototype.push_ = function() {
+            var i;
+            for(i=0;i<arguments.length;i++) { //arguments代表传进的参数集合，是一个伪数组。
+                this[this.length] = arguments[i];
+            }
+            return this.length;
+        }
+        var arr = [1,2,3];
+        var result = arr.push_(4,5,6);
+        console.log(result);
+        console.log(arr);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        jsonp的原理（json with padding）
+        动态创建script标签，此标签的src属性，不受同源策略的影响，XmlHttpRequest只允许请求同源（当前）资源。
+        通过script标签进行跨域请求，并在响应中返回要执行的代码，可以直接使用json传递script对象。
+        执行过程如下：
+            首先js文件中写一个callback函数（eg:jsonpcallback）,然后把callback函数名字传递给服务器（可以拼接在src中）。
+        注意：服务端得到callback的信息后，要用jsonpcallback(...)把将要输出的json内容包括起来，此时，服务器生成json数据才能被客户端真正接收。
+            然后以javascript语法的形式，生成一个function,function的名字就是传递上来的参数callback的值（jsonpcallback），最后将json数据直接以入参的形式
+        放置到function中，这样就， 生成了一段js语法文档，返回给客户端。
+            客户端浏览器解析script标签，并执行返回的javascript文档，此时javascript文档数据，作为参数， 传入到了客户端预先定义好的 callback 函数。
+            类似于一下代码：
+            jsonpcallback({
+                name:"gaoqiufang",
+                age:"16"
+            })
+            //后端返回格式大概如下：
+        // return 'jsonpcallback(' + data + ')' 
+            jsonp的缺点：只支持get请求，不支持post等其他类型的http请求，它只支持跨域HTTP请求这种情况，
+            不能解决不同域的两个页面之间如何进行JavaScript调用的问题。
+    -->
+    <ul>
+        <li class="num">手机号码
+            <span></span>
+        </li>
+        <li class="province">归属省份
+            <span></span>
+        </li>
+        <li class="operators">运营商
+            <span></span>
+        </li>
+    </ul>
+    <button id="btn">获取</button>
+    <script>
+        function jsonpcallback(data) {
+            console.log(data);
+            var num = data.telString,
+                province = data.province,
+                operators = data.catName;
+
+            $(".num span").html(num);
+            $(".province span").html(province);
+            $(".operators span").html(operators);
+        }
+
+        function get() {
+            var btn = document.querySelector('#btn');
+            var body = document.querySelector('body');
+            btn.onclick = function () {
+                var script = document.createElement('script');
+                script.src =
+                    'http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=18812666448&callback=jsonpcallback';
+                body.appendChild(script);
+            }
+        }
+        get()
+    </script>
+    <!-- <script src ="http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=18812666448&callback=jsonpcallback" type="text/javascript"></script>   -->
+</body>
+
+</html>

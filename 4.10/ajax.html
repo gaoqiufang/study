@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();//创建一个ajax对象
+        xhr.onreadystatechange = function() { //对ajax对象进行监听
+            if(xhr.readyState == 4) { //4表示解析完毕
+                if(xhr.status == 200) { //200表示返回正常
+                    document.getElementById("box").innerHTML = xhr.responseText;
+                }
+            }
+        }
+        xhr.open("POST","url",true); //建立连接
+        xhr.send();//发送
+
+    </script>
+</body>
+</html>
